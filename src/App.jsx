@@ -242,13 +242,22 @@ export default function App() {
           <h2>My Bits</h2>
           {bits
             .filter((b) => b.authorId === user.uid)
-            .map((bit) => (
-              <div key={bit.id} className="bit-card">
-                <h3>{bit.name}</h3>
-                <p>{bit.description}</p>
-                <p>⭐ {bit.rating ? bit.rating.toFixed(1) : "No ratings"}</p>
-              </div>
-            ))}
+            .map((bit) => {
+              const ratingCount = Object.keys(bit.ratings || {}).length;
+              const hasRatings = ratingCount > 0;
+              return (
+                <div key={bit.id} className="bit-card">
+                  <h3>{bit.name}</h3>
+                  <p>{bit.description}</p>
+                  <p>
+                    ⭐{" "}
+                    {hasRatings
+                      ? `${(bit.rating || 0).toFixed(1)} (${ratingCount})`
+                      : "No ratings"}
+                  </p>
+                </div>
+              );
+            })}
         </div>
 
         <div className="leaderboard">
@@ -256,27 +265,36 @@ export default function App() {
           {bits.length === 0 ? (
             <p>No bits yet!</p>
           ) : (
-            bits.map((bit) => (
-              <div key={bit.id} className="bit-card">
-                <h3>{bit.name}</h3>
-                <p>{bit.description}</p>
-                <p>By: {bit.author || "Unknown"}</p>
-                <p>⭐ {bit.rating ? bit.rating.toFixed(1) : "No ratings"}</p>
-                <div>
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <span
-                      key={star}
-                      onClick={() => rateBit(bit, star)}
-                      className={`star ${
-                        star <= (bit.ratings?.[user.uid] || 0) ? "gold" : ""
-                      }`}
-                    >
-                      ★
-                    </span>
-                  ))}
+            bits.map((bit) => {
+              const ratingCount = Object.keys(bit.ratings || {}).length;
+              const hasRatings = ratingCount > 0;
+              return (
+                <div key={bit.id} className="bit-card">
+                  <h3>{bit.name}</h3>
+                  <p>{bit.description}</p>
+                  <p>By: {bit.author || "Unknown"}</p>
+                  <p>
+                    ⭐{" "}
+                    {hasRatings
+                      ? `${(bit.rating || 0).toFixed(1)} (${ratingCount})`
+                      : "No ratings"}
+                  </p>
+                  <div>
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <span
+                        key={star}
+                        onClick={() => rateBit(bit, star)}
+                        className={`star ${
+                          star <= (bit.ratings?.[user.uid] || 0) ? "gold" : ""
+                        }`}
+                      >
+                        ★
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))
+              );
+            })
           )}
         </div>
       </div>
