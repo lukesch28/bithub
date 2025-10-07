@@ -1,0 +1,262 @@
+/* --- BASE STYLING --- */
+body {
+  margin: 0;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #f8fbfd;
+  color: #1b1b1b;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1000px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* --- HEADER --- */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e6f0f2;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo-circle {
+  background: linear-gradient(135deg, #00b5c7, #007a8c);
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 6px rgba(0, 181, 199, 0.3);
+}
+
+.logo-title h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #007a8c;
+  margin: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background-color: #00b5c7;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.logout-btn:hover {
+  background-color: #0099a8;
+}
+
+/* --- STATS SECTION --- */
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.stats-group {
+  flex: 1 1 48%;
+  background: #ffffff;
+  border: 1px solid #e4eef0;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+.stats-group h2 {
+  color: #007a8c;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.6rem 0;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  gap: 0.8rem;
+}
+
+.stat.small {
+  flex: 1;
+}
+
+.stat.small h4 {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.stat.small p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.2rem 0 0;
+  color: #007a8c;
+}
+
+/* --- MAIN GRID --- */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.my-bits,
+.leaderboard {
+  background: #ffffff;
+  border: 1px solid #e4eef0;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.15s ease;
+}
+
+.my-bits h2,
+.leaderboard h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  color: #007a8c;
+  border-bottom: 1px solid #e6f0f2;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
+}
+
+/* --- BIT CARDS --- */
+.bit-card {
+  background: #f6fbfc;
+  border: 1px solid #d5edf0;
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 0.6rem;
+  transition: all 0.15s ease;
+}
+.bit-card:hover {
+  transform: scale(1.01);
+  background: #eaf7f8;
+}
+
+.bit-card h3 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1rem;
+  color: #005f6b;
+}
+
+.bit-card p {
+  margin: 0.2rem 0;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* --- STARS --- */
+.star {
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin: 0 1px;
+  color: #bbb;
+}
+.star.gold {
+  color: #ffb400;
+}
+
+/* --- ADD BIT --- */
+.add-bit-bar {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.add-bit-form {
+  background: #ffffff;
+  border: 1px solid #e4eef0;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* --- INPUTS + BUTTONS --- */
+input,
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin: 0.4rem 0;
+  border-radius: 6px;
+  border: 1px solid #ccdfe2;
+  background: #f9fefe;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #00b5c7;
+  background: #ffffff;
+  box-shadow: 0 0 4px rgba(0, 181, 199, 0.3);
+}
+
+button {
+  background-color: #00b5c7;
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0099a8;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .stats-container {
+    flex-direction: column;
+  }
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+}
